@@ -16,7 +16,7 @@ body {
   background-repeat: no-repeat;
   font-family: 'Comic Sans MS', cursive;
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* 👉 EDIT THIS: overlay opacity if text is hard to read */
@@ -214,7 +214,12 @@ yesButton.addEventListener("click", () => {
   noButton.style.display = "none";
   document.getElementById("letters").style.display = "block";
   setInterval(createHeart, 300);
+
+  // ✅ Auto-scroll to the letters
+  document.getElementById("letters")
+    .scrollIntoView({ behavior: "smooth" });
 });
+
 
 /* Envelope open */
 function openEnvelope(env) {
