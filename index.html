@@ -57,14 +57,8 @@
   }
 
   @keyframes float {
-    from {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateY(-600px);
-      opacity: 0;
-    }
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-600px); opacity: 0; }
   }
 
   /* =====================
@@ -98,7 +92,7 @@
   }
 
   /* =====================
-     💜 FULL LETTER OVERLAY
+     💜 LETTER OVERLAY
      ===================== */
   .letter-overlay {
     display: none;
@@ -116,23 +110,29 @@
     color: white;
     max-width: 600px;
     width: 100%;
-    padding: 35px;
+    max-height: 80vh;          /* ✅ LIMIT HEIGHT */
+    overflow-y: auto;          /* ✅ SCROLL INSIDE LETTER */
+    padding: 30px;
     border-radius: 20px;
     font-size: 18px;
     line-height: 1.7;
-    animation: pop 0.5s ease;
+    animation: pop 0.4s ease;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
 
+  /* nice scrollbar (optional) */
+  .letter-box::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .letter-box::-webkit-scrollbar-thumb {
+    background: #c79cff;
+    border-radius: 10px;
+  }
+
   @keyframes pop {
-    from {
-      transform: scale(0.7);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
   }
 
   .close {
@@ -160,61 +160,61 @@
 <button id="yes">Yes 💕</button>
 <button id="no">No 🙈</button>
 
-<!-- =====================
-     ✉️ ENVELOPES
-     ===================== -->
+<!-- ✉️ ENVELOPES -->
 <div id="letters">
   <div class="envelope" onclick="openLetter(1)"></div>
   <div class="envelope" onclick="openLetter(2)"></div>
   <div class="envelope" onclick="openLetter(3)"></div>
 </div>
 
-<!-- =====================
-     💜 LETTER OVERLAYS
-     ===================== -->
+<!-- 💜 LETTER 1 -->
 <div class="letter-overlay" id="letter1">
   <div class="letter-box">
     <p>
-      <p>
-I love you more than I know how to say,<br>
-More than the words I swallow and keep.<br>
-More than the nights I pretend I’m okay,<br>
-More than the tears I don’t let myself weep.<br><br>
-
-I love you in ways I never knew,<br>
-In parts of my heart I thought were closed.<br>
-You found the broken and made them new,<br>
-You stayed when loving me wasn’t composed.<br><br>
-
-So if you ever wonder your worth,<br>
-Or doubt how deeply you’re adored—<br>
-I love you more than this whole earth,<br>
-And somehow, tomorrow, I’ll love you more.
-</p>
+      I love you more than yesterday,  
+      more than words can carry,  
+      more than my heart ever knew was possible.  
+      And tomorrow — I’ll love you even more.
+    </p>
     <div class="close" onclick="closeLetter(1)">Close 💜</div>
   </div>
 </div>
 
+<!-- 💜 LETTER 2 (LONG + SCROLLABLE) -->
 <div class="letter-overlay" id="letter2">
   <div class="letter-box">
     <p>
-      I still remember our first kiss in that tiny photobooth, how the world seemed to shrink until it was just us, smiling and laughing, hearts racing. I can’t forget our first hug in coaching, the way you wrapped your arms around me and held on, even when it was a little awkward, and I felt completely safe in your warmth. I love the way your sun-kissed eyes light up when you look at me, how you sometimes jump just to kiss my forehead, and how you hug me over my shoulder even when you’re struggling to reach. Every little gesture, every touch, every laugh—it all reminds me that loving you is the easiest thing I’ve ever done, and I never want to stop. 
-
+      Our first kiss in that photobooth still lives in my chest.  
+      Our first hug in coaching — awkward, shy, perfect.  
+      Your sun-kissed eyes, the way you jump to kiss my forehead,  
+      the way you hug me over my shoulder even when it’s hard.  
+      Every small moment with you became everything to me.
     </p>
+
     <img src="photobooth.png" class="photo">
+
+    <p>
+      I didn’t just fall in love with you —  
+      I fell into safety, laughter, warmth, and home.
+    </p>
+
     <div class="close" onclick="closeLetter(2)">Close 💜</div>
   </div>
 </div>
 
+<!-- 💜 LETTER 3 -->
 <div class="letter-overlay" id="letter3">
   <div class="letter-box">
     <p>
       My gorgey.  
       My jaanu.  
       My doll.  
-     Every time I see you, my heart skips a beat. I love the way you smile, the way you laugh, and how even in the smallest moments you make my world brighter. You’re my favorite hello and my hardest goodbye. I love holding you close, seeing your sun-kissed eyes light up, and feeling your little playful touches that make me melt every single time. No matter what, I want you to know that I adore you—my Gorgey, my Jaanu, my Doll—and I’ll love you more with every heartbeat, forever and always.
+      You are my home, my comfort, my forever.  
+      Loving you feels effortless — like breathing.
     </p>
+
     <img src="us2.png" class="photo">
+
     <div class="close" onclick="closeLetter(3)">Close 💜</div>
   </div>
 </div>
@@ -259,4 +259,6 @@ And somehow, tomorrow, I’ll love you more.
 
 </body>
 </html>
+
+
 
